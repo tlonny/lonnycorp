@@ -1,4 +1,4 @@
-import { node } from "@lonnycorp/htmlforge"
+import { css, node } from "@lonnycorp/htmlforge"
 
 export class Container implements node.Buildable {
 
@@ -6,13 +6,17 @@ export class Container implements node.Buildable {
 
     constructor() {
         this.root = new node.Element("main")
-            .style("max-width", "640px")
-            .style("padding", "10px")
-            .style("display", "flex")
-            .style("flex-direction", "column")
-            .style("flex-grow", "1")
-            .style("gap", "12px")
-            .style("margin", "0 auto")
+            .css(cls => css.css`
+                .${cls} {
+                    max-width: 640px;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
+                    gap: 12px;
+                    margin: 0 auto;
+                }
+            `)
     }
 
     child(child : node.Buildable) {

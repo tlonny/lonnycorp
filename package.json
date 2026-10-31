@@ -17,6 +17,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@lonnycorp/htmlforge": "0.1.2"
+    "@lonnycorp/htmlforge": "0.2.0"
   }
 }

@@ -45,14 +45,6 @@ const PROJECTS : ProjectParams[] = [
             "A minimal, zero dependency, fully-typed parser combinator ",
             "for Node.js/Typescript",
         ].join("")
-    },
-    {
-        path: "https://cosmic.lonnycorp.com",
-        name: "Cosmic Roulette",
-        description: [
-            "A swipeable astronomy card deck for the web, built for my two-year-old son, ",
-            "with short facts about planets, moons, stars, and galaxies.",
-        ].join("")
     }
 ]
 

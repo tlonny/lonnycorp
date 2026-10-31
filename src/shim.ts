@@ -1,14 +1,18 @@
-import { node } from "@lonnycorp/htmlforge"
+import { css, node } from "@lonnycorp/htmlforge"
 
 export const shim = (body : node.Element) => {
     body
-        .style("color", "black")
-        .style("font-family", "monospace")
-        .style("display", "flex")
-        .style("flex-direction", "column")
-        .style("margin", "0px")
-        .style("height", "100vh")
-        .style("padding", "0px")
-        .style("font-size", "12px")
-        .style("box-sizing", "border-box")
+        .css(cls => css.css`
+            .${cls} {
+                color: black;
+                font-family: monospace;
+                display: flex;
+                flex-direction: column;
+                margin: 0px;
+                height: 100vh;
+                padding: 0px;
+                font-size: 12px;
+                box-sizing: border-box;
+            }
+        `)
 }

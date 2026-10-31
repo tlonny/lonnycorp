@@ -1,4 +1,4 @@
-import { node } from "@lonnycorp/htmlforge"
+import { css, node } from "@lonnycorp/htmlforge"
 
 export class Nav implements node.Buildable {
 
@@ -6,13 +6,21 @@ export class Nav implements node.Buildable {
 
     constructor(title: string) {
         this.root = new node.Element("div")
-            .style("display", "flex")
-            .style("gap", "10px")
-            .style("justify-content", "center")
+            .css(cls => css.css`
+                .${cls} {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: center;
+                }
+            `)
             .child(
                 new node.Element("div")
-                    .style("background", "black")
-                    .style("color", "white")
+                    .css(cls => css.css`
+                        .${cls} {
+                            background: black;
+                            color: white;
+                        }
+                    `)
                     .child(new node.Text(title))
             )
     }

@@ -1,4 +1,4 @@
-import { node } from "@lonnycorp/htmlforge"
+import { css, node } from "@lonnycorp/htmlforge"
 
 export class Divider implements node.Buildable {
 
@@ -6,7 +6,11 @@ export class Divider implements node.Buildable {
 
     constructor() {
         this.root = new node.Element("div")
-            .style("border-bottom", "dashed black 1px")
+            .css(cls => css.css`
+                .${cls} {
+                    border-bottom: dashed black 1px;
+                }
+            `)
     }
 
     build() {
