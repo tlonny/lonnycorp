@@ -31,7 +31,7 @@ const PROJECTS : ProjectParams[] = [
         ].join("")
     },
     {
-        path: "https://github.com/tlonny/htmlforge",
+        path: "https://htmlforge.lonnycorp.com",
         name: "HTMLForge",
         description: [
             "A minimal, zero dependency HTML builder with efficient ",
