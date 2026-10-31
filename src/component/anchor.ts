@@ -1,4 +1,4 @@
-import { node } from "@lonnycorp/htmlforge"
+import { css, node } from "@lonnycorp/htmlforge"
 
 export type AnchorParams = {
     href: string,
@@ -12,9 +12,13 @@ export class Anchor implements node.Buildable {
     constructor(params: AnchorParams) {
         this.root = new node.Element("a")
             .attribute("href", params.href)
-            .style("color", "blue")
-            .style("background", "blue", { pseudoSelector: ":hover" })
-            .style("color", "white", { pseudoSelector: ":hover" })
+            .css(cls => css.css`
+                .${cls} { color: blue; }
+                .${cls}:hover {
+                    background: blue;
+                    color: white;
+                }
+            `)
             .child(new node.Text(params.text))
     }
 

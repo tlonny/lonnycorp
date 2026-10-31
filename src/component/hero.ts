@@ -1,4 +1,4 @@
-import { node } from "@lonnycorp/htmlforge"
+import { css, node } from "@lonnycorp/htmlforge"
 
 export class Hero implements node.Buildable {
 
@@ -6,13 +6,21 @@ export class Hero implements node.Buildable {
 
     constructor(imageURL: string) {
         this.root = new node.Element("div")
-            .style("display", "flex")
-            .style("justify-content", "center")
+            .css(cls => css.css`
+                .${cls} {
+                    display: flex;
+                    justify-content: center;
+                }
+            `)
             .child(
                 new node.Element("img")
                     .attribute("src", imageURL)
-                    .style("height", "auto")
-                    .style("max-width", "100%")
+                    .css(cls => css.css`
+                        .${cls} {
+                            height: auto;
+                            max-width: 100%;
+                        }
+                    `)
             )
     }
 
