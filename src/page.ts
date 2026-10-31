@@ -2,6 +2,7 @@ import {
     Container,
     Divider,
     Head,
+    Header,
     Hero,
     Nav,
     Project,
@@ -13,7 +14,7 @@ import { Document } from "@lonnycorp/htmlforge"
 const IMAGE_PATH = "/asset/home-hero.webp"
 const TITLE = "The Lonny Corporation"
 
-const PROJECTS : ProjectParams[] = [
+const PLAY : ProjectParams[] = [
     {
         path: "https://hallways.lonnycorp.com",
         name: "Hallways",
@@ -21,7 +22,10 @@ const PROJECTS : ProjectParams[] = [
             "A first-person web browser for 3D spaces. Hyperlinks are replaced by portals that",
             "can be seamlessly walked through with no loading.",
         ].join(" ")
-    },
+    }
+]
+
+const UTILITIES : ProjectParams[] = [
     {
         path: "https://lonnymq.lonnycorp.com",
         name: "LonnyMQ",
@@ -61,9 +65,16 @@ export const toString = () => {
         .child(new Divider())
         .child(new Hero(IMAGE_PATH))
         .child(new Divider())
+        .child(new Header("Play"))
 
-    for (const item of PROJECTS) {
-        body.child(new Project(item))
+    for (const project of PLAY) {
+        body.child(new Project(project))
+    }
+
+    body.child(new Header("Utilities"))
+
+    for (const project of UTILITIES) {
+        body.child(new Project(project))
     }
 
     doc.body
